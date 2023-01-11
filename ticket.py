@@ -11,17 +11,17 @@ def TS1():
 
 def TS2():
     if T2.text[-1:] != 't':
-        return T1.text
+        return T2.text
 
 
 def TS3():
     if T3.text[-1:] != 't':
-        return T1.text
+        return T3.text
 
 
 def TS4():
     if T4.text[-1:] != 't':
-        return T1.text
+        return T4.text
 
 
 def win():
