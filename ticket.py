@@ -1,7 +1,7 @@
 import requests,time,sys,random
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets
-
+from datetime import datetime
 
 
 def TS1():
@@ -67,7 +67,9 @@ while True:
     T2 = ticket_status.find('ul', id='group_20945')
     T3 = ticket_status.find('ul', id='group_20946')
     T4 = ticket_status.find('ul', id='group_20947')
-
+    currentDateAndTime = datetime.now()
+    currentTime = currentDateAndTime.strftime("%H:%M:%S")
+    print("The current time is", currentTime)
     if TS1() != None or TS2() != None or TS3() != None or TS4() != None:
         win()
         break
