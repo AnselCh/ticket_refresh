@@ -15,3 +15,7 @@
  > requests==2.28.1  
  > soupsieve==2.3.2.post1  
  > urllib3==1.26.13  
+
+ __env:__
+  > Python 3.10.8  
+  > win10
