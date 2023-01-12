@@ -2,7 +2,7 @@
  pip install -r requirements.txt
  
   __pip list:__
- > altgraph==0.17.3
+ > altgraph==0.17.3 \n
  > beautifulsoup4==4.11.1
  > certifi==2022.12.7
  > charset-normalizer==2.1.1
