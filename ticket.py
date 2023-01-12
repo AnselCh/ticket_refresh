@@ -3,7 +3,8 @@ import time
 import sys
 import random
 from bs4 import BeautifulSoup
-from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5 import QtWidgets, QtGui
+from PyQt5.QtCore import *
 from datetime import datetime
 
 
@@ -30,6 +31,7 @@ def TS4():
 def win():
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
+    Form.setWindowFlags(Qt.WindowStaysOnTopHint)
     Form.setWindowTitle('ticket')
     Form.resize(500, 180)
     label = QtWidgets.QLabel(Form)   # 在 Form 裡加入標籤
@@ -74,7 +76,7 @@ while True:
     currentDateAndTime = datetime.now()
     currentTime = currentDateAndTime.strftime("%H:%M:%S")
     print("The current time is", currentTime)
-    if TS1() != None or TS2() != None or TS3() != None or TS4() != None:
+    if TS1() == None or TS2() != None or TS3() != None or TS4() != None:
         win()
         break
     print(f'{T1.text}\n{T2.text}\n{T3.text}\n{T4.text}')
