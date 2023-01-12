@@ -3,7 +3,7 @@ import time
 import sys
 import random
 from bs4 import BeautifulSoup
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui, QtCore
 from datetime import datetime
 
 
@@ -31,12 +31,13 @@ def win():
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     Form.setWindowTitle('ticket')
-    Form.resize(100, 20)
+    Form.resize(500, 180)
     label = QtWidgets.QLabel(Form)   # 在 Form 裡加入標籤
-    label.setText('搶票加油!')
-    mbox = QtWidgets.QMessageBox(Form)       # 加入對話視窗
-    mbox.information(
-        Form, 'info', f'{T1.text}\n{T2.text}\n{T3.text}\n{T4.text}')
+    label.setText(f'{T1.text}\n{T2.text}\n{T3.text}\n{T4.text}')
+    font = QtGui.QFont()                       # 加入文字設定
+    font.setPointSize(20)                      # 文字大小
+    font.setBold(True)                         # 粗體
+    label.setFont(font)
     Form.show()
     sys.exit(app.exec_())
 
