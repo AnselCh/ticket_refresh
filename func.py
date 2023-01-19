@@ -3,19 +3,22 @@ import random
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import *
+from fake_useragent import UserAgent
+
 
 class AutoRun:
     def __init__(self) -> None:
-        self.header=self.read_header()
+        self.header = self.read_header()
 
-    def read_header(self)->list:
-        with open('headerlist.txt','r') as f:
-            return f.read().splitlines()
+    def read_header(self) -> str:
+        ua = UserAgent()
+        user_agent = ua.random
+        return user_agent
 
-    def get_header(self)->dict:
-        return {'User-Agent':random.choice(self.header)}
+    def get_header(self) -> dict:
+        return {'User-Agent': self.header}
 
-    def has_ticket_alarm(self,ts:list)->None:
+    def has_ticket_alarm(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)
         Form = QtWidgets.QWidget()
         Form.setWindowFlags(Qt.WindowStaysOnTopHint)
@@ -30,18 +33,15 @@ class AutoRun:
         Form.show()
         sys.exit(app.exec_())
 
-    def check_ticket_status(self,soup:BeautifulSoup):
+    def check_ticket_status(self, soup: BeautifulSoup):
         ticket_status = soup.find('div', class_='zone area-list')
-        ticket_status_list=[]
-        for i in range(20944,20948):#area id range
-            ticket_status_list.append(ts:=ticket_status.find('ul',id='group_{}'.format(i)).text)
+        ticket_status_list = []
+        for i in range(20944, 20948):  # area id range
+            ticket_status_list.append(ts := ticket_status.find(
+                'ul', id='group_{}'.format(i)).text)
             find_flag = False if 'out' in ts else True
         if find_flag:
             self.has_ticket_alarm(ticket_status_list)
-            return False,ticket_status_list
+            return False, ticket_status_list
         else:
-            return True,ticket_status_list
-
-
-    
-    
+            return True, ticket_status_list
