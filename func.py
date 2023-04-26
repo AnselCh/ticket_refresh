@@ -40,19 +40,20 @@ class AutoRun:
         ticket_status_list = []
         # print(ticket_status)
         for i in range(self.area_id_start, self.area_id_end + 1):  # area id range
-            # ticket_status_list.append(ts := ticket_status.find(
-            #     'ul', id='group_{}'.format(i)).text)
-            group_ul = ticket_status.find('ul', id=f'group_{i}')
-            if group_ul is None:
-                continue
-            lis = group_ul.find_all('li')
-            for li in lis:
-                print(li.text)
-                ticket_status_list.append(li.text + '\n')
+            find_flag = False  # 每次循环前都要重新初始化
 
-                find_flag = False if 'out' in li else True
+            try:
+                group_ul = ticket_status.find('ul', id=f'group_{i}')
+                lis = group_ul.find_all('li')
+                for li in lis:
+                    # print(li.text)
+                    ticket_status_list.append(li.text + '\n')
+                    if 'out' not in li.text:
+                        find_flag = True
+            except:
+                return True, ticket_status_list,True
         if find_flag:
             self.has_ticket_alarm(ticket_status_list)
-            return False, ticket_status_list
+            return False, ticket_status_list,False
         else:
-            return True, ticket_status_list
+            return True, ticket_status_list,False
