@@ -31,10 +31,14 @@ class AutoRun:
         scroll_area = QtWidgets.QScrollArea(Form)
         scroll_area.setGeometry(0, 0, Form.width(), Form.height())  # 設置滾動區域的大小
         scroll_area.setWidgetResizable(True)
-
+        remain_ticket = []
         label = QtWidgets.QLabel(scroll_area)
-        label.setText(f''.join(ts))
+        for t in ts:
+            if 'remain' in t:
+                remain_ticket.append(
+                    '<font color=\"#ff6666\">'+f''.join(t)+'</font><br>')
 
+        label.setText(f''.join(remain_ticket))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
