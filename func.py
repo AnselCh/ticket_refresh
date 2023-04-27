@@ -25,13 +25,23 @@ class AutoRun:
         Form = QtWidgets.QWidget()
         Form.setWindowFlags(Qt.WindowStaysOnTopHint)
         Form.setWindowTitle('ticket')
-        Form.resize(500, 180)
-        label = QtWidgets.QLabel(Form)   # 在 Form 裡加入標籤
-        label.setText(f'\n'.join(ts))
-        font = QtGui.QFont()                       # 加入文字設定
-        font.setPointSize(20)                      # 文字大小
-        font.setBold(True)                         # 粗體
+
+        # 設置窗口大小
+        Form.resize(500, 400)
+        scroll_area = QtWidgets.QScrollArea(Form)
+        scroll_area.setGeometry(0, 0, Form.width(), Form.height())  # 設置滾動區域的大小
+        scroll_area.setWidgetResizable(True)
+
+        label = QtWidgets.QLabel(scroll_area)
+        label.setText(f''.join(ts))
+
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
         label.setFont(font)
+
+        scroll_area.setWidget(label)
+        scroll_area.show()
         Form.show()
         sys.exit(app.exec_())
 

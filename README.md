@@ -2,7 +2,8 @@
 1.
 ```
   virtualenv ticket_env  #建立虛擬環境
-  ticket_env\Scripts\activate   #進入虛擬環境
+  win: ticket_env\Scripts\activate   #進入虛擬環境
+  macOS: source ./ticket_env/bin/activate
 ```
 2.
 ```
