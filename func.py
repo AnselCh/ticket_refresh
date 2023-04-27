@@ -38,9 +38,9 @@ class AutoRun:
     def check_ticket_status(self, soup: BeautifulSoup):
         ticket_status = soup.find('div', class_='zone area-list')
         ticket_status_list = []
+        find_flag = False
         # print(ticket_status)
         for i in range(self.area_id_start, self.area_id_end + 1):  # area id range
-            find_flag = False  # 每次循环前都要重新初始化
 
             try:
                 group_ul = ticket_status.find('ul', id=f'group_{i}')
@@ -51,9 +51,9 @@ class AutoRun:
                     if 'out' not in li.text:
                         find_flag = True
             except:
-                return True, ticket_status_list,True
+                return True, ticket_status_list, True  # 當找不到tag返回out_of_range==True
         if find_flag:
             self.has_ticket_alarm(ticket_status_list)
-            return False, ticket_status_list,False
+            return False, ticket_status_list, False
         else:
-            return True, ticket_status_list,False
+            return True, ticket_status_list, False
