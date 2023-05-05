@@ -27,13 +27,14 @@
 ```
 2.
 ```
- pip install -r requirements.txt
+ pip3 install -r requirements.txt
 ```
 
 3.
 ```
- python main.py
+ python3 main.py
 ```
+> arm架構晶片pyqt5需使用brew安裝！
 
 4. 終端機會詢問要監聽的網址，輸入完按enter
 再來會詢問監聽的票券範圍，較大的場館都會分不同票種 ，拓元官網HTML會使用id=group_numbe來編號，請使用瀏覽器進入開發者設定查詢，若只想監聽單一票種，監聽範圍請輸入一樣的數字就好
