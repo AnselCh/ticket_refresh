@@ -2,8 +2,10 @@ import sys
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import *
-from fake_useragent import UserAgent
-
+try:
+    from fake_useragent import UserAgent
+except:
+    pass
 
 class AutoRun:
 
@@ -13,13 +15,17 @@ class AutoRun:
         self.area_id_end = area_id_end
 
     def read_header(self) -> str:
-        ua = UserAgent()
-        user_agent = ua.random
-        return user_agent
+        try:
+            ua = UserAgent()
+            user_agent = ua.random
+            return user_agent
+        except: 
+            pass
 
     def get_header(self) -> dict:
-        return {'User-Agent': self.header}
-
+        try:
+            return {'User-Agent': self.header}
+        except: pass
     def has_ticket_alarm(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)
         Form = QtWidgets.QWidget()
