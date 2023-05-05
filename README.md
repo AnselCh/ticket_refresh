@@ -1,5 +1,6 @@
 # 說明
-請先按右上角的code並下載ZIP，並解壓縮
+請先點“TicketMonitor.zip”進入後，downloads後解壓縮  
+進到執行檔後按著鍵盤control點擊TicketMonitor開啟
 > 這支程式只能監控有分區域的票種，可以看下面範例圖，若是單一票種沒有分區域則不適用  
 > 若執行檔可以成功執行，可將TicketMonitor以外的檔案都清除
 
