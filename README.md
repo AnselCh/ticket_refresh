@@ -5,11 +5,11 @@
 
 # 查詢監聽範圍
 1. 到網頁按右鍵點選inspect打開開發者工具
-![1]()
+![1](https://github.com/AnselCh/ticket_refresh/blob/main/img/1)
 2. 用開發者工具左上角的游標定位票種的tag
-![2]()
+![2](https://github.com/AnselCh/ticket_refresh/blob/main/img/2)
 3. 記起來是group_多少，之後可以帶入到監聽範圍
-![3]()
+![3](https://github.com/AnselCh/ticket_refresh/blob/main/img/3)
 
 
 # 本機執行建議先用虛擬環境(使用source code 執行)
