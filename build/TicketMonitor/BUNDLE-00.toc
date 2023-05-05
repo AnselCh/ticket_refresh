@@ -1,3 +1,0 @@
-([('TicketMonitor',
-   '/Users/ansel/Desktop/VScode_Ansel/ticket/dist/TicketMonitor',
-   'EXECUTABLE')],)
