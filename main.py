@@ -4,9 +4,9 @@ import json
 from datetime import datetime
 
 import requests
-
-from func import AutoRun
 from bs4 import BeautifulSoup
+
+from auto_run import AutoRun
 
 def get_config():
     import sys
@@ -22,9 +22,6 @@ def get_config():
               "Will be using ./config.json instead.")
         with open("config.json", "r") as f:
             return json.load(f)
-
-def isNone(val):
-    return val is None
 
 def get_value_or_input(target, field, input_question):
     val = target.get(field)

@@ -3,6 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import *
+
+from requests_operations import send_line_msg
 try:
     from fake_useragent import UserAgent
 except:
@@ -58,25 +60,7 @@ class AutoRun:
             if 'remain' in t:
                 remain_ticket.append(f''.join(t))    
         msg_body = "".join(remain_ticket)
-        self._send_line_msg(msg_body)
-
-    def _send_line_msg(self, msg_body):
-        token = self.token["line"]
-        assert type(token) is str
-        assert len(token) > 0
-        # https://notify-bot.line.me/my/
-        headers = {
-            "Authorization": "Bearer " + token, 
-            "Content-Type" : "application/x-www-form-urlencoded"
-        }
-
-        msg = f"[Ticket Monitor] \n{self.title}\n\n"
-        msg += f"{msg_body}"
-        msg += f"\nURL: {self.url}"
-            
-        payload = {'message': msg }
-        r = requests.post("https://notify-api.line.me/api/notify", headers = headers, params = payload)
-        return r.status_code
+        send_line_msg(self.token["line"], msg_body)
     
     def _has_ticket_alarm_qt(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)
