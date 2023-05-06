@@ -3,7 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import *
-
+try:
+    from fake_useragent import UserAgent
+except:
+    pass
 
 class AutoRun:
 
@@ -22,7 +25,12 @@ class AutoRun:
         self.token = config["token"]
 
     def read_header(self) -> str:
-        pass
+        try:
+            ua = UserAgent(use_external_data=True)
+            user_agent = ua.random
+            return user_agent
+        except: 
+            pass
 
     def get_header(self) -> dict:
         try:
