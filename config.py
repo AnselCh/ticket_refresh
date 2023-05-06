@@ -27,7 +27,7 @@ def create_config_content() -> dict:
         ]
     ).ask()
 
-    line_token = questionary.text(
+    line_token = questionary.password(
         "輸入Line權杖（可從 https://notify-bot.line.me/my/ 申請或是按Enter跳過）："
     ).skip_if("傳送Line通知" not in notification_type).ask()
 
@@ -79,7 +79,7 @@ def create_config_content() -> dict:
     config = {
         "notification_type":
         {
-            "Window": "跳出視窗通知" in notification_type,
+            "window": "跳出視窗通知" in notification_type,
             "line": "傳送Line通知" in notification_type
         },
         "token":
