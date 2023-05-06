@@ -59,7 +59,7 @@ class AutoRun:
     def has_ticket_alarm(self, ts:list) -> None:
         if self.notification_type.get("line"):
             self._has_ticket_alarm_line(ts)
-        if self.notification_type.get("Window") is False:
+        if self.notification_type.get("window") is False:
             self._has_ticket_alarm_qt(ts)
 
     def _has_ticket_alarm_line(self, ts:list=[], msg_overwrite="") -> None:
