@@ -1,4 +1,5 @@
 altgraph==0.17.3
+auto-py-to-exe==2.34.0
 beautifulsoup4==4.12.2
 bottle==0.12.25
 bottle-websocket==0.2.9
@@ -13,6 +14,7 @@ greenlet==2.0.2
 idna==3.4
 importlib-resources==5.12.0
 macholib==1.16.2
+prompt-toolkit==3.0.38
 pyinstaller==5.10.1
 pyinstaller-hooks-contrib==2023.2
 pyparsing==3.0.9
@@ -31,9 +33,11 @@ PyQtPurchasing==5.15.5
 PyQtPurchasing-Qt5==5.15.2
 PyQtWebEngine==5.15.6
 PyQtWebEngine-Qt5==5.15.2
+questionary==1.10.0
 requests==2.29.0
 soupsieve==2.4.1
 urllib3==1.26.15
+wcwidth==0.2.6
 whichcraft==0.6.1
 zipp==3.15.0
 zope.event==4.6
