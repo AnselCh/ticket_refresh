@@ -7,27 +7,29 @@ import requests
 from bs4 import BeautifulSoup
 
 from auto_run import AutoRun
+from config import create_config_content
 
 def get_config():
     import sys
     import os.path
     CWD = os.path.abspath(os.path.dirname(sys.executable))
     config_path = os.path.join(CWD, "config.json")
-    try:
-        with open(config_path, "r") as f:
-            return json.load(f)
-    except FileNotFoundError as e:
-        print(f"Not getting config from {config_path}. "\
-              "Assume running with source code. "\
-              "Will be using ./config.json instead.")
-        with open("config.json", "r") as f:
-            return json.load(f)
+    if "venv" in config_path:  # assume running in devel mode
+        print("=== RUNNING IN DEVELOP MODE ===")
+        config_path = "config.json"
+    if not os.path.isfile(config_path):
+        config = create_config_content()
+        with open(config_path, "w") as f:
+            f.write(json.dumps(config, indent=4))
+
+    with open(config_path, "r") as f:
+        return json.load(f)
 
 def get_value_or_input(target, field, input_question):
     val = target.get(field)
     valid = False
     if type(val) is int:
-        valid = True if val > 0 else False
+        valid = True if val >= 0 else False
     if type(val) is str:
         valid = True if val else False
     if valid:
