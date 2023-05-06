@@ -1,4 +1,6 @@
 # 說明
+## mac intel請選擇 “TicketMonitor-x86_64.zip”
+## mac M1/M2 請選擇 “TicketMonitor-arm.zip”
 請先點“TicketMonitor.zip”進入後，downloads後解壓縮  
 進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
 ![unzip](https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png)
