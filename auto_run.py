@@ -40,13 +40,21 @@ class AutoRun:
         except: pass
     
     def __del__(self) -> None:
-        self._send_line_msg("End Monitoring.\n")
+        send_line_msg(
+            self.token["line"],
+            self.title,
+            "End Monitoring.\n",
+            self.url)
 
     def parse_title(self, soup:BeautifulSoup) -> None:
         h2s = soup.find_all('h2', {"class": "activityT title"})
         if h2s:
             self.title = h2s[0].text
-            self._send_line_msg("Start Monitoring.\n")
+            send_line_msg(
+                self.token["line"],
+                self.title,
+                "Start Monitoring.\n",
+                self.url)
 
     def has_ticket_alarm(self, ts:list) -> None:
         if self.notification_type.get("line"):
@@ -60,7 +68,7 @@ class AutoRun:
             if 'remain' in t:
                 remain_ticket.append(f''.join(t))    
         msg_body = "".join(remain_ticket)
-        send_line_msg(self.token["line"], msg_body)
+        send_line_msg(self.token["line"], self.title, msg_body, self.url)
     
     def _has_ticket_alarm_qt(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)

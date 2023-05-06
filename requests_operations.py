@@ -31,16 +31,16 @@ def validate_line_token(token: str) -> Tuple[bool, str]:
     r = requests.get("https://notify-api.line.me/api/status", headers=headers)
     return r.status_code == 200, f"{r.status_code}: {r.content}"
 
-def send_line_msg(token: str, msg_body: str) -> int:
+def send_line_msg(token: str, title:str, msg_body: str, url: str) -> int:
     # https://notify-bot.line.me/my/
     headers = {
         "Authorization": "Bearer " + token, 
         "Content-Type" : "application/x-www-form-urlencoded"
     }
 
-    msg = f"[Ticket Monitor] \n{self.title}\n\n"
+    msg = f"[Ticket Monitor] \n{title}\n\n"
     msg += f"{msg_body}"
-    msg += f"\nURL: {self.url}"
+    msg += f"\nURL: {url}"
         
     payload = {'message': msg }
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=payload)
