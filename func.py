@@ -2,10 +2,7 @@ import sys
 from bs4 import BeautifulSoup
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtCore import *
-try:
-    from fake_useragent import UserAgent
-except:
-    pass
+
 
 class AutoRun:
 
@@ -15,12 +12,8 @@ class AutoRun:
         self.area_id_end = area_id_end
 
     def read_header(self) -> str:
-        try:
-            ua = UserAgent()
-            user_agent = ua.random
-            return user_agent
-        except: 
-            pass
+        
+        pass
 
     def get_header(self) -> dict:
         try:
