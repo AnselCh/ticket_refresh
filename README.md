@@ -5,11 +5,14 @@
 ### 版本
 
 1. 請先點“TicketMonitor.zip”進入後，downloads後解壓縮  
-  * mac M1/M2 請選擇 “TicketMonitor-arm.zip”
-  * mac intel請選擇 “TicketMonitor-v2-x86_64.zip”
-進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
+    * mac M1/M2 請選擇 “TicketMonitor-arm.zip”
+    * mac intel請選擇 “TicketMonitor-v2-x86_64.zip”
+
+2. 進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
+
 ![unzip](https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png)
 ![op](https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png)
+
 ### 開啟後需要一點時間載入！
 > 這支程式只能監控有分區域的票種，可以看下面範例圖，若是單一票種沒有分區域則不適用  
 > 若執行檔可以成功執行，可將TicketMonitor以外的檔案都清除
@@ -17,8 +20,8 @@
 
 ### 使用執行檔
 1. 直接開啟執行檔
-  * mac M1/M2 請選擇 “TicketMonitor-arm”
-  * mac intel請選擇 “TicketMonitor-v2-x86_64”
+    * mac M1/M2 請選擇 “TicketMonitor-arm”
+    * mac intel請選擇 “TicketMonitor-v2-x86_64”
 2. 輸入要監聽的網址
 3. 輸入要監聽範圍（看以下範例）
 4. 若沒票會顯示ＸＸ區域No tickets available，幾秒過後會再重新載入一次，直到刷到票會跳出剩餘票券的視窗
