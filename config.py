@@ -32,11 +32,12 @@ def create_config_content() -> dict:
     ).skip_if("傳送Line通知" not in notification_type).ask()
 
     if line_token:
+        line_token = line_token.strip()
         line_token_valid, reason = validate_line_token(line_token)
         if not line_token_valid:
             print("權杖無效，請從 https://notify-bot.line.me/my/ 申請或是稍後修改config.json檔")
-        line_token = ""
-        notification_type["line"] = False
+            line_token = ""
+            notification_type.remove("傳送Line通知")
 
     set_target = questionary.confirm(
         "是否預先設定監控網址及區間？"
@@ -47,10 +48,11 @@ def create_config_content() -> dict:
     ).skip_if(not set_target).ask()
 
     if url:
+        url = url.strip()
         url_valid, reason = validate_url(url)
         if not url_valid:
             print("網址無效，請稍候從config.json設定")
-
+            url = ""
 
     start_group_number = questionary.text(
         "起始編號（或稍後從config.json設定/或在執行程式時輸入）："
