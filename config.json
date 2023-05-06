@@ -1,0 +1,17 @@
+{
+    "notification_type":
+    {
+        "Window": true,
+        "line": true
+    },
+    "token":
+    {
+        "line": "Get your token at https://notify-bot.line.me/my/"
+    },
+    "target":
+    {
+        "url": "",
+        "start": -1,
+        "end": -1
+    }
+}
