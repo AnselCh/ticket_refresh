@@ -10,13 +10,13 @@
 
 2. 進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
 
-![unzip](https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png)
-![op](https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png)
+<img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png" height="200"> <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png" height="200">
+
 
 #### New in v2-1
 * 設定檔將在第一次開啟執行檔時生成
 * 若需要重新設定可以直接更改config.json或是刪除後重新跑執行檔生成
-![v2_1-interactive_interface.gif](img/v2_1-interactive_interface.gif)
+<img src="img/v2_1-interactive_interface.gif" height="400">
 
 #### 設定Line通知
 1. 進入[Line Notify](https://notify-bot.line.me/my/)
@@ -24,15 +24,14 @@
 3. 權杖名稱輸入「餘票通知」
 4. 聊天室選擇「透過1對1聊天接收Line Notify的通知」
 5. 記下權杖
-![line-notification](img/line_notification.jpeg)
 
 #### 查詢監聽範圍
 1. 到網頁按右鍵點選inspect打開開發者工具
-![1](https://github.com/AnselCh/ticket_refresh/blob/main/img/1.png)
+<img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/1.png" height="400"> 
 2. 用開發者工具左上角的游標定位票種的tag
-![2](https://github.com/AnselCh/ticket_refresh/blob/main/img/2.png)
+<img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/2.png" height="400"> 
 3. 記起來是group_多少，之後可以帶入到監聽範圍
-![3](https://github.com/AnselCh/ticket_refresh/blob/main/img/3.png)
+<img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/3.png" height="400"> 
 
 #### 使用執行檔
 1. 直接開啟執行檔
