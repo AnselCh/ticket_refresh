@@ -23,6 +23,15 @@
 3. 記起來是group_多少，之後可以帶入到監聽範圍
 ![3](https://github.com/AnselCh/ticket_refresh/blob/main/img/3.png)
 
+# 設定Line通知
+1. 進入[Line Notify](https://notify-bot.line.me/my/)
+2. 點選「發行權杖」
+3. 權杖名稱輸入「餘票通知」
+4. 聊天室選擇「透過1對1聊天接收Line Notify的通知」
+5. 按下發行後將權杖的一串字複製下來，貼到[config.json](config.json)的“token”->"line"中，記得保留前後雙引號
+6. 確認[config.json](config.json)中"notification_type"->"line"為沒有雙引號的小寫true
+7. 若設定成功且開始執行，line將會收到以下通知
+![line-notification](img/line_notification.jpeg)
 
 # 本機執行建議先用虛擬環境(使用source code 執行)
 1.
@@ -51,3 +60,19 @@ HTML
 ```
 這時候範圍都輸入0就好了。
 
+# Build for x86_64
+1. 
+```
+  virtualenv ticket_env  #建立虛擬環境
+  win: ticket_env\Scripts\activate   #進入虛擬環境
+  macOS: source ./ticket_env/bin/activate
+```
+2.
+```
+  pip3 install -r requirements.txt
+```
+3. 
+```
+  // 由於需要讀入confic.json，用這個只另將config.json加入install的dist資料夾中
+  pyinstaller --clean TicketMonitor-v2-x86_64.spec
+```
