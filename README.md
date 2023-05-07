@@ -35,7 +35,7 @@
 
 #### 使用執行檔
 1. 直接開啟執行檔
-  * mac M1/M2 請選擇 “TicketMonitor-arm”
+  * mac M1/M2 請選擇 “TicketMonitor-v2-arm”
   * mac intel 請選擇 “TicketMonitor-v2_1-x86_64”
 2. 輸入要監聽的網址 (若已在設定檔設定則不需要)
 3. 輸入要監聽範圍（看以下範例）
