@@ -5,8 +5,8 @@
 ### 執行
 
 1. 請先點“TicketMonitor.zip”進入後，downloads後解壓縮  
-    * mac M1/M2 請選擇 “TicketMonitor-arm.zip”
-    * mac intel請選擇 “TicketMonitor-v2-x86_64.zip”
+    * mac M1/M2 請選擇 “TicketMonitor-v2-arm.zip”
+    * mac intel請選擇 “TicketMonitor-v2_1-x86_64.zip”
 
 2. 進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
 
