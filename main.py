@@ -2,28 +2,35 @@ import time
 import random
 import json
 from datetime import datetime
+import sys
+import os.path
 
 import requests
 from bs4 import BeautifulSoup
 
 from auto_run import AutoRun
-from config import create_config_content
+import config as cfg
+import requests_operations as req
 
-def get_config():
-    import sys
-    import os.path
+def get_config_path():
     CWD = os.path.abspath(os.path.dirname(sys.executable))
     config_path = os.path.join(CWD, "config.json")
     if "venv" in config_path:  # assume running in devel mode
         print("=== RUNNING IN DEVELOP MODE ===")
         config_path = "config.json"
-    if not os.path.isfile(config_path):
-        config = create_config_content()
-        with open(config_path, "w") as f:
-            f.write(json.dumps(config, indent=4))
+    return config_path
 
-    with open(config_path, "r") as f:
-        return json.load(f)
+def get_config(config_path):
+    if not os.path.isfile(config_path):
+        config = cfg.create_config_content()
+    else:
+        with open(config_path, "r") as f:
+            return json.load(f)
+    return config
+
+def save_config(config: dict, config_path):
+    with open(config_path, "w") as f:
+        f.write(json.dumps(config, indent=4))
 
 def get_value_or_input(target, field, input_question):
     val = target.get(field)
@@ -42,15 +49,19 @@ def get_value_or_input(target, field, input_question):
         return answer
 
 def main():
-    config = get_config()
+    config_path = get_config_path()
+    config = get_config(config_path)
     not_find_flag = True
     out_of_range = False
-    target = config.get("target") or {}
-    url = get_value_or_input(target, "url", '請輸入網址: ')
-    area_id_start = get_value_or_input(target, "start", "搜尋起點: ")
-    area_id_end = get_value_or_input(target, "end", "搜尋終點: ")
 
-    ar = AutoRun(url, area_id_start, area_id_end, config)
+    config = cfg.validate_config(config)
+    save_config(config, config_path)
+    target = config.get("target")
+    url = target.get("url")
+
+    cfg.pretty_print_config(config)
+
+    ar = AutoRun(config)
     while not_find_flag:
 
         print('connecting...')
