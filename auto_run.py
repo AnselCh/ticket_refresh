@@ -31,20 +31,21 @@ class AutoRun:
             ua = UserAgent(use_external_data=True)
             user_agent = ua.random
             return user_agent
-        except: 
+        except:
             pass
 
     def get_header(self) -> dict:
         try:
             return {'User-Agent': self.header}
         except: pass
-    
+
     def __del__(self) -> None:
-        send_line_msg(
-            self.token["line"],
-            self.title,
-            "End Monitoring.\n",
-            self.url)
+        if self.notification_type.get("line"):
+            send_line_msg(
+                self.token["line"],
+                self.title,
+                "End Monitoring.\n",
+                self.url)
 
     def parse_title(self, soup:BeautifulSoup) -> None:
         h2s = soup.find_all('h2', {"class": "activityT title"})
@@ -66,10 +67,10 @@ class AutoRun:
         remain_ticket = []
         for t in ts:
             if 'remain' in t:
-                remain_ticket.append(f''.join(t))    
+                remain_ticket.append(f''.join(t))
         msg_body = "".join(remain_ticket)
         send_line_msg(self.token["line"], self.title, msg_body, self.url)
-    
+
     def _has_ticket_alarm_qt(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)
         Form = QtWidgets.QWidget()

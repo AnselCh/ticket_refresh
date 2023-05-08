@@ -12,7 +12,7 @@ def input_number(num: str) -> int:
         return num
     except:
         return -1
-        
+
 
 def create_config_content() -> dict:
     questionary.print(
@@ -93,7 +93,7 @@ def create_config_content() -> dict:
             "end": input_number(end_group_number)
         }
     }
-    
+
     questionary.print(f"\n設定檔：\n{json.dumps(config, indent=3)}\n", style="bold fg:lightblue")
     return config
 

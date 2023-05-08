@@ -34,13 +34,13 @@ def get_value_or_input(target, field, input_question):
         valid = True if val else False
     if valid:
         return val
-    
+
     answer = input(input_question)
     try:
         return int(answer)
     except ValueError:
         return answer
-    
+
 def main():
     config = get_config()
     not_find_flag = True
@@ -52,7 +52,7 @@ def main():
 
     ar = AutoRun(url, area_id_start, area_id_end, config)
     while not_find_flag:
-        
+
         print('connecting...')
         try:
             response = requests.get(
