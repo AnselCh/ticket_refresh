@@ -18,6 +18,8 @@ def validate_url(url: str) -> Tuple[bool, str]:
     valid, reason = _validate_string(url, "url")
     if not valid:
         return valid, reason
+    if not "tixcraft.com/ticket/" in url:
+        return False, "只支援拓元售票系統（https://tixcraft.com/ticket/ 開頭）的頁面"
     if not url.startswith("http") or len(url) < 14:
         return False, "Not done yet."
     try:
