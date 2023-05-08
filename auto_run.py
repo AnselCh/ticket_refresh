@@ -47,16 +47,6 @@ class AutoRun:
                 "End Monitoring.\n",
                 self.url)
 
-    def parse_title(self, soup:BeautifulSoup) -> None:
-        h2s = soup.find_all('h2', {"class": "activityT title"})
-        if h2s:
-            self.title = h2s[0].text
-            send_line_msg(
-                self.token["line"],
-                self.title,
-                "Start Monitoring.\n",
-                self.url)
-
     def has_ticket_alarm(self, ts:list) -> None:
         if self.notification_type.get("line"):
             self._has_ticket_alarm_line(ts)
@@ -102,7 +92,7 @@ class AutoRun:
 
     def check_ticket_status(self, soup: BeautifulSoup):
         if self.title is None:
-            self.parse_title(soup)
+            self.title = parser.parse_title(soup)
         ticket_status = soup.find('div', class_='zone area-list')
         ticket_status_list = []
         find_flag = False
