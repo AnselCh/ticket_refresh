@@ -43,7 +43,7 @@ class AutoRun:
             send_line_msg(
                 self.token["line"],
                 self.title,
-                "End Monitoring.\n",
+                "結束監看餘票。\n",
                 self.url)
 
     def has_ticket_alarm(self, ts:list) -> None:
@@ -95,7 +95,7 @@ class AutoRun:
             send_line_msg(
                 self.token["line"],
                 self.title,
-                "Start Monitoring.\n",
+                "開始監看餘票：）\n",
                 self.url)
         ticket_status = soup.find('div', class_='zone area-list')
         ticket_status_list = []

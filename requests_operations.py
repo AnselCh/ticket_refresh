@@ -54,9 +54,9 @@ def send_line_msg(token: str, title:str, msg_body: str, url: str) -> int:
         "Content-Type" : "application/x-www-form-urlencoded"
     }
 
-    msg = f"[Ticket Monitor] \n{title}\n\n"
+    msg = f"\n[餘票監看程式通知] \n\n{title}\n\n"
     msg += f"{msg_body}"
-    msg += f"\nURL: {url}"
+    msg += f"\n網址: {url}"
 
     payload = {'message': msg }
     r = requests.post("https://notify-api.line.me/api/notify", headers=headers, params=payload)
