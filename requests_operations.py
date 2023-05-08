@@ -1,5 +1,11 @@
 import requests
+import random
+import time
 from typing import Tuple
+
+from bs4 import BeautifulSoup
+
+import html_parser as parser
 
 def _validate_string(s: str, from_="") -> Tuple[bool, str]:
     if type(s) is not str:
@@ -30,6 +36,16 @@ def validate_line_token(token: str) -> Tuple[bool, str]:
     }
     r = requests.get("https://notify-api.line.me/api/status", headers=headers)
     return r.status_code == 200, f"{r.status_code}: {r.content}"
+
+def request(url: str, headers: dict = {}) -> BeautifulSoup:
+    while True:
+        try:
+            response = requests.get(url, headers=headers).text
+            return BeautifulSoup(response, "html.parser")
+        except Exception as e:
+            delay = random.randint(2, 5)
+            print(f"Requesting {url} failed. Will try in {delay} seconds. ({e})")
+            time.sleep(delay)
 
 def send_line_msg(token: str, title:str, msg_body: str, url: str) -> int:
     # https://notify-bot.line.me/my/

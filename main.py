@@ -54,13 +54,9 @@ def main():
     while not_find_flag:
 
         print('connecting...')
-        try:
-            response = requests.get(
-                url, headers=ar.get_header())
-        except:
-            print('error url : {url}')
-        not_find_flag, ts, out_of_range = ar.check_ticket_status(
-            BeautifulSoup(response.text, "html.parser"))
+        response = req.request(url, headers=ar.get_header())
+
+        not_find_flag, ts, out_of_range = ar.check_ticket_status(response)
         if out_of_range:
             print('請檢查輸入區間是否有誤')
             break
