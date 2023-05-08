@@ -92,7 +92,7 @@ def ask_for_notification_type() -> dict:
         "line": "傳送Line通知" in answer
     }
 
-def ask_for_line_token(notification_type, requested=False) -> Tuple[dict, str]:
+def ask_for_line_token(notification_type, required=False) -> Tuple[dict, str]:
 
     while True:
         line_token = questionary.password(
@@ -107,10 +107,10 @@ def ask_for_line_token(notification_type, requested=False) -> Tuple[dict, str]:
             questionary.print(">>> 權杖驗證成功！", style="bold fg:lightyellow")
             break
 
-        if requested:
+        if required:
             cancel = questionary.confirm("權杖無效，是否不使用Line通知？").ask()
 
-        if not requested or cancel:
+        if not required or cancel:
             if line_token:
                 questionary.print(
                     "權杖無效，請從 https://notify-bot.line.me/my/ 申請或是稍後修改config.json檔",
