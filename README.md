@@ -12,9 +12,10 @@
 
 <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png" height="200"> <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png" height="200">
 
-#### 設定通知方式、監看活動、監看範圍 （待更新GIF檔）
+#### 設定通知方式、監看活動、監看範圍
 * 找好要監看的網址，e.g. https://tixcraft.com/ticket/area/23_reneliu/14411 
-  * [](img/url_example.png)
+<img src="img/url_example.png" height="300">
+
 * 跟著終端機中的提示輸入通知方式、監看的活動和範圍
 * 若需要重新設定可以直接更改config.json或是刪除後重新跑執行檔生成
 * 若需要使用Line通知，請參考[#設定line通知](#設定line通知)
@@ -23,15 +24,15 @@
 
 #### 設定Line通知
 1. 進入[Line Notify](https://notify-bot.line.me/my/)
-  * [img/line_token_screenshots/1]
-2. 點選「發行權杖」
-  * [img/line_token_screenshots/2]
-3. 權杖名稱輸入「餘票通知」
-  * [img/line_token_screenshots/3]
-4. 聊天室選擇「透過1對1聊天接收Line Notify的通知」
-  * [img/line_token_screenshots/4]
-5. 記下權杖
-  * [img/line_token_screenshots/5]
+<img src="img/line_token_screenshots/1.png" height="300">
+3. 點選「發行權杖」
+<img src="img/line_token_screenshots/2.png" height="300">
+4. 權杖名稱輸入「餘票通知」
+<img src="img/line_token_screenshots/3.png" height="300">
+5. 聊天室選擇「透過1對1聊天接收Line Notify的通知」
+<img src="img/line_token_screenshots/4.png" height="300">
+6. 記下權杖
+<img src="img/line_token_screenshots/5.png" height="300">
 
 
 
@@ -43,9 +44,9 @@
 ### 進階使用
 
 #### 以config檔設定網址和監聽範圍
-在[config.json](config.json)裡的"target"欄位分別填入
+在 `config.json` 裡的"target"欄位分別填入
 1. "url": 查詢到的網址，須包含雙引號
-2. "group_ids": 需要監看的票區，格式為["group_#", "group_#"]
+2. "group_ids": 需要監看的票區，格式為 `["group_#", "group_#"]`
 
 
 #### 本機執行建議先用虛擬環境(使用source code 執行)
