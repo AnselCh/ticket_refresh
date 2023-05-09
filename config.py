@@ -99,7 +99,6 @@ def ask_for_line_token(notification_type, required=False) -> Tuple[dict, str]:
             "輸入Line權杖（可從 https://notify-bot.line.me/my/ 申請或是按Enter跳過）："
         ).skip_if(not notification_type.get("line")).ask() or ""
 
-        print(line_token)
         line_token = line_token.strip()
         line_token_valid, reason = validate_line_token(line_token)
 
@@ -188,7 +187,7 @@ def create_config_content() -> dict:
         "target": target
     }
 
-    questionary.print(f"\n設定檔：\n{json.dumps(config, indent=3)}\n", style="bold fg:lightblue")
+    # questionary.print(f"\n設定檔：\n{json.dumps(config, indent=3)}\n", style="bold fg:lightblue")
     return config
 
 if __name__ == "__main__":
