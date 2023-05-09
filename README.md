@@ -4,11 +4,10 @@
 
 ### 執行
 
-1. 請先點“TicketMonitor.zip”進入後，downloads後解壓縮  
+1. 請先至 [Releases](https://github.com/showaykerker/ticket_refresh/releases) 下載對應的壓縮檔並解壓縮
     * mac M1/M2 請選擇 “TicketMonitor-v2-arm.zip”
-    * mac intel請選擇 “TicketMonitor-v2_1-x86_64.zip”
-
-2. 進到執行檔後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
+    * mac intel請選擇 “TicketMonitor-v2_2-x86_64.zip”
+2. 解壓縮後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
 
 <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png" height="200"> <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png" height="200">
 
