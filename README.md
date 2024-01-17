@@ -64,7 +64,6 @@
 ```
  python3 main.py
 ```
-> arm架構晶片pyqt5需使用brew安裝！
 
 4. 依據終端機的詢問完成設定
 5. 產生config.json檔並開始監控
