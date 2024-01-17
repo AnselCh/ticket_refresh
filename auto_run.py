@@ -2,8 +2,8 @@ import sys
 import requests
 from typing import Dict
 from bs4 import BeautifulSoup
-from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtCore import *
+from PyQt6 import QtWidgets, QtGui
+from PyQt6.QtCore import *
 
 import html_parser as parser
 from requests_operations import send_line_msg

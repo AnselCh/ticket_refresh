@@ -18,6 +18,7 @@ def get_config_path():
     if "venv" in config_path:  # assume running in devel mode
         print("=== RUNNING IN DEVELOP MODE ===")
         config_path = "config.json"
+    print(f"config path: {config_path}")
     return config_path
 
 def get_config(config_path):
@@ -62,8 +63,10 @@ def main():
     cfg.pretty_print_config(config)
 
     ar = AutoRun(config)
-    while not_find_flag:
 
+    while not_find_flag:
+    # while True: # 若要持續搜尋
+        
         print('connecting...')
         response = req.request(url, headers=ar.get_header())
 
