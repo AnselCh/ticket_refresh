@@ -81,7 +81,7 @@ def validate_config(config):
 
 def ask_for_notification_type() -> dict:
     answer = questionary.checkbox(
-        '選擇通知方式 (上下鍵移動｜空白鍵選擇｜Enter送出)',
+        '選擇通知方式 (上下鍵移動｜按空白鍵勾選(可複選)｜Enter確認)',
         choices = [
             "跳出視窗通知",
             "傳送Line通知"
@@ -161,7 +161,7 @@ def ask_for_region(regions: Dict[str, str]) -> Tuple[List[str], List[str]]:
         e.g. "一樓站區 已售完": group_22542
     """
     keys = questionary.checkbox(
-        "選擇要監控的範圍 (上下鍵移動｜空白鍵選擇｜Enter送出)",
+        "選擇要監控的範圍 (上下鍵移動｜按空白鍵勾選(可複選)｜Enter確認)",
         regions.keys()).ask()
     return [regions[k] for k in keys], keys
 
