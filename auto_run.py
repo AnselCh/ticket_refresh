@@ -63,7 +63,7 @@ class AutoRun:
     def _has_ticket_alarm_qt(self, ts: list) -> None:
         app = QtWidgets.QApplication(sys.argv)
         Form = QtWidgets.QWidget()
-        Form.setWindowFlags(Qt.WindowStaysOnTopHint)
+        Form.setWindowFlag(Qt.WindowType.WindowStaysOnTopHint)
         Form.setWindowTitle('ticket')
 
         # 設置窗口大小
@@ -87,7 +87,7 @@ class AutoRun:
         scroll_area.setWidget(label)
         scroll_area.show()
         Form.show()
-        sys.exit(app.exec_())
+        sys.exit(app.exec())
 
     def check_ticket_status(self, soup: BeautifulSoup):
         if self.title is None:
@@ -122,7 +122,17 @@ class AutoRun:
 if __name__ == '__main__':
     # url = "https://tixcraft.com/ticket/area/23_more2come/14445"
     url = "https://tixcraft.com/ticket/area/23_reneliu/14411"
-    ar = AutoRun(url, 0, 0, {})
+    ar = AutoRun(url, {"target": {}, "notification_type": {}, "token": {}})
     response = requests.get(
         url, headers=ar.get_header())
     ar.parse_zone_info(BeautifulSoup(response.text, "html.parser"))
+"""
+    # 模擬假資料
+    fake_data = ["remain_ticket_1", "remain_ticket_2", "out_of_range_ticket"]
+    # 初始化 AutoRun 物件
+    ar = AutoRun({"target": {}, "notification_type": {"window": True}, "token": {}})
+    # 觸發 _has_ticket_alarm_qt 方法
+    ar._has_ticket_alarm_qt(fake_data)
+    # 或者，您也可以直接觸發 has_ticket_alarm 方法，它會選擇性地呼叫 _has_ticket_alarm_qt
+    ar.has_ticket_alarm(fake_data)
+"""
