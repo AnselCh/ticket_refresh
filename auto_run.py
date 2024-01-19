@@ -75,7 +75,6 @@ class AutoRun:
         label = QtWidgets.QLabel(scroll_area)
         for t in ts:
             if 'remain' in t or 'Available' in t or '剩餘' in t or '熱賣中' in t or '席残り' in t or '大ヒット発売中' in t:
-            if 'remain' in t:
                 remain_ticket.append(
                     '<font color=\"#ff6666\">'+f''.join(t)+'</font><br>')
 

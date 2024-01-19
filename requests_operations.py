@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 
 import html_parser as parser
 
+from cookies import get_cookies
+
 def _validate_string(s: str, from_="") -> Tuple[bool, str]:
     if type(s) is not str:
         return False, f"type({s}) is not str, {type(s)} instead"
@@ -23,7 +25,7 @@ def validate_url(url: str) -> Tuple[bool, str]:
     if not url.startswith("http") or len(url) < 14:
         return False, "Not done yet."
     try:
-        r = requests.head(url)
+        r = requests.head(url, cookies=get_cookies())
     except Exception as e:
         return False, e
     return r.status_code in [200, 302], f"{r.status_code}: {r.content}"
@@ -42,7 +44,7 @@ def validate_line_token(token: str) -> Tuple[bool, str]:
 def request(url: str, headers: dict = {}) -> BeautifulSoup:
     while True:
         try:
-            response = requests.get(url, headers=headers).text
+            response = requests.get(url, headers=headers, cookies=get_cookies()).text
             return BeautifulSoup(response, "html.parser")
         except Exception as e:
             delay = random.randint(2, 5)

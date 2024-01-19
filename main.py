@@ -64,8 +64,8 @@ def main():
 
     ar = AutoRun(config)
 
-    while not_find_flag:
-    # while True: # 若要持續搜尋
+    # while not_find_flag:
+    while True: # 若要持續搜尋
         
         print('connecting...')
         response = req.request(url, headers=ar.get_header())
