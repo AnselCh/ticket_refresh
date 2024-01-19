@@ -74,7 +74,7 @@ class AutoRun:
         remain_ticket = []
         label = QtWidgets.QLabel(scroll_area)
         for t in ts:
-            if 'remain' in t:
+            if 'remain' in t or 'Available' in t:
                 remain_ticket.append(
                     '<font color=\"#ff6666\">'+f''.join(t)+'</font><br>')
 
