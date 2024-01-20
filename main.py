@@ -13,7 +13,8 @@ import config as cfg
 import requests_operations as req
 
 def get_config_path():
-    CWD = os.path.abspath(os.path.dirname(sys.executable))
+    # CWD = os.path.abspath(os.path.dirname(sys.executable)) #py解釋器的執行檔路徑
+    CWD = os.getcwd()  # 使用 os.getcwd() 獲取當前工作目錄
     config_path = os.path.join(CWD, "config.json")
     if "venv" in config_path:  # assume running in devel mode
         print("=== RUNNING IN DEVELOP MODE ===")

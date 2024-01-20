@@ -7,8 +7,10 @@ import re
 import os.path
     
 def parse_cookie_file(cookie_file):
-    """Parse a cookies.txt file and return a dictionary of key value pairs
-    compatible with requests."""
+    """
+    Parse a cookies.txt file and return a dictionary of key value pairs
+    compatible with requests.
+    """
 
     cookies = {}
     with open (cookie_file, 'r') as fp:
