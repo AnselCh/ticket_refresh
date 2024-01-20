@@ -74,7 +74,7 @@ class AutoRun:
         remain_ticket = []
         label = QtWidgets.QLabel(scroll_area)
         for t in ts:
-            if 'remain' in t or 'Available' in t:
+            if 'remain' in t or 'Available' in t or '剩餘' in t or '熱賣中' in t or '席残り' in t or '大ヒット発売中' in t:
                 remain_ticket.append(
                     '<font color=\"#ff6666\">'+f''.join(t)+'</font><br>')
 
@@ -108,7 +108,7 @@ class AutoRun:
                 for li in lis:
                     # print(li.text)
                     ticket_status_list.append(li.text + '\n')
-                    if 'out' not in li.text:
+                    if 'out' not in li.text and '已售完' not in li.text and '完売した' not in li.text:
                         find_flag = True
             except:
                 return True, ticket_status_list, True  # 當找不到tag返回out_of_range==True
