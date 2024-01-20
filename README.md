@@ -3,10 +3,11 @@
 ## 說明
 
 ### 執行
+######執行檔已經停止維護，若要使用最新版本請用source code執行
 
 1. 請先至 [Releases](https://github.com/showaykerker/ticket_refresh/releases/tag/v2.1) 下載對應的壓縮檔並解壓縮
     * mac M1/M2 請選擇 “TicketMonitor-v2-arm.zip”
-    * mac intel請選擇 “TicketMonitor-v2_2-x86_64.zip”
+    * mac intel請選擇 “TicketMonitor-v2_2-x86_64.zip
 2. 解壓縮後按著鍵盤control點擊TicketMonitor開啟，否則系統會因不信任而無法執行
 
 <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/unzip.png" height="200"> <img src="https://github.com/AnselCh/ticket_refresh/blob/main/img/op.png" height="200">
@@ -48,12 +49,11 @@
 2. "group_ids": 需要監看的票區，格式為 `["group_#", "group_#"]`
 
 
-#### 本機執行建議先用虛擬環境(使用source code 執行)
+#### 使用source code 執行(建議使用虛擬環境)
 1.
 ```
-  virtualenv ticket_env  #建立虛擬環境
-  win: ticket_env\Scripts\activate   #進入虛擬環境
-  macOS: source ./ticket_env/bin/activate
+  conda create -n py311 python=3.11  #conda建立虛擬環境
+  conda activate py311
 ```
 2.
 ```
