@@ -3,7 +3,7 @@
 ## 說明
 
 ### 執行
-######執行檔已經停止維護，若要使用最新版本請用source code執行
+> 執行檔已經停止維護，若要使用最新版本請用source code執行
 
 1. 請先至 [Releases](https://github.com/showaykerker/ticket_refresh/releases/tag/v2.1) 下載對應的壓縮檔並解壓縮
     * mac M1/M2 請選擇 “TicketMonitor-v2-arm.zip”
