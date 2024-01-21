@@ -26,9 +26,14 @@ def get_config(config_path):
     if not os.path.isfile(config_path):
         config = cfg.create_config_content()
     else:
-        with open(config_path, "r") as f:
-            return json.load(f)
+        reset_config = cfg.ask_for_reset(config_path)
+        if not reset_config:
+            with open(config_path, "r") as f:
+                return json.load(f)
+        else:
+            config = cfg.create_config_content()
     return config
+
 
 def save_config(config: dict, config_path):
     with open(config_path, "w") as f:
