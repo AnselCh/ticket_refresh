@@ -88,3 +88,4 @@
 - [ ] AWS distribution guide.
 - [ ] 其他售票網站
 - [ ] 其他通知方式
+- [o] 詢問是否使用舊的config，若否詢問是否沿用權杖

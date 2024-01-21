@@ -9,7 +9,7 @@ import html_parser as parser
 
 def pretty_print_config(config):
     config = validate_config(config)
-    notification_type = "通知方式: "
+    notification_type = "通知方式： "
     if config["notification_type"]["window"]:
         notification_type += "跳出視窗通知 "
     if config["notification_type"]["line"]:
@@ -167,7 +167,7 @@ def ask_for_region(regions: Dict[str, str]) -> Tuple[List[str], List[str]]:
 
 def create_config_content() -> dict:
     questionary.print(
-        "\n未找到設定檔，現在開始創建設定檔\n",
+        "現在開始創建設定檔",
         style="bold fg:lightgreen")
 
     notification_type = ask_for_notification_type()
@@ -189,6 +189,26 @@ def create_config_content() -> dict:
 
     # questionary.print(f"\n設定檔：\n{json.dumps(config, indent=3)}\n", style="bold fg:lightblue")
     return config
+
+    # 判斷是否沿用舊的設定
+def ask_for_reset(config):
+    with open(config, "r") as f:
+        config_data = json.load(f)
+        title = config_data["target"].get("title")
+    if title:
+        questionary.print(f"監控：{title}中", style="bold fg:lightgreen")
+    zone_verboses = config_data["target"].get("zone_verboses")
+    if zone_verboses:
+        questionary.print(f"監控票區：{zone_verboses}", style="bold fg:lightgreen")
+    
+    reset_config = 0  # 預設值為 0
+    if not questionary.confirm("請問是否繼續使用此設定檔？").ask():
+        questionary.print("建立新的設定檔...", style="bold fg:lightgreen")
+        reset_config = 1
+
+    return reset_config
+
+
 
 if __name__ == "__main__":
     create_config_content()

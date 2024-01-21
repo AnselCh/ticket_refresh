@@ -13,7 +13,8 @@ import config as cfg
 import requests_operations as req
 
 def get_config_path():
-    CWD = os.path.abspath(os.path.dirname(sys.executable))
+    # CWD = os.path.abspath(os.path.dirname(sys.executable)) #py解釋器的執行檔路徑
+    CWD = os.getcwd()  # 使用 os.getcwd() 獲取當前工作目錄
     config_path = os.path.join(CWD, "config.json")
     if "venv" in config_path:  # assume running in devel mode
         print("=== RUNNING IN DEVELOP MODE ===")
@@ -25,9 +26,14 @@ def get_config(config_path):
     if not os.path.isfile(config_path):
         config = cfg.create_config_content()
     else:
-        with open(config_path, "r") as f:
-            return json.load(f)
+        reset_config = cfg.ask_for_reset(config_path)
+        if not reset_config:
+            with open(config_path, "r") as f:
+                return json.load(f)
+        else:
+            config = cfg.create_config_content()
     return config
+
 
 def save_config(config: dict, config_path):
     with open(config_path, "w") as f:
