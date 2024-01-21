@@ -1,6 +1,26 @@
 # Ticket Refresh 自動查看餘票
 
 ## 說明
+> 監控拓元售票系統的餘券狀況，可以依照需求選擇跳窗提醒或是連動LINE Notify
+
+### 使用source code 執行(建議使用虛擬環境)
+1.
+```
+  conda create -n py311 python=3.11  #conda建立虛擬環境
+  conda activate py311
+```
+2.
+```
+ pip3 install -r requirements.txt
+```
+
+3.
+```
+ python3 main.py
+```
+
+4. 依據終端機的詢問完成設定
+5. 產生config.json檔並開始監控
 
 ### 執行
 > 執行檔已經停止維護，若要使用最新版本請用source code執行
@@ -48,26 +68,6 @@
 1. "url": 查詢到的網址，須包含雙引號
 2. "group_ids": 需要監看的票區，格式為 `["group_#", "group_#"]`
 
-
-#### 使用source code 執行(建議使用虛擬環境)
-1.
-```
-  conda create -n py311 python=3.11  #conda建立虛擬環境
-  conda activate py311
-```
-2.
-```
- pip3 install -r requirements.txt
-```
-
-3.
-```
- python3 main.py
-```
-
-4. 依據終端機的詢問完成設定
-5. 產生config.json檔並開始監控
-
 #### Build for x86_64 with config file using pyinstaller
 1. 
 ```
@@ -88,4 +88,4 @@
 - [ ] AWS distribution guide.
 - [ ] 其他售票網站
 - [ ] 其他通知方式
-- [o] 詢問是否使用舊的config，若否詢問是否沿用權杖
+- [x] 詢問是否使用舊的config，若否詢問是否沿用權杖
